@@ -67,12 +67,7 @@ $$
 library(dplyr)
 
 # Compute loglikelihood, AIC and BIC manually
-unif.gof.manual <- data %>%
-  summarise(loglik = -n() * log(max(something) - min(something)),
-            AIC = 4 - 2*loglik,
-            BIC = 2*log(n()) - 2*loglik)
 
-print(unif.gof.manual)
 ```
 
 * So in this case, the log likelihood is `r unif.gof.manual$loglik`, the AIC is `r unif.gof.manual$AIC`, and the BIC is `r unif.gof.manual$BIC`.
@@ -84,6 +79,6 @@ print(unif.gof.manual)
 * You can accomplish this with the `ylim` argument, like this:
 
 ```{r}
-denscomp(unif.fit, legendtext = c('uniform'), plotstyle='ggplot', ylim=c(0, 0.1))
+denscomp(unif.fit, legendtext = c('uniform'), plotstyle='ggplot')
 
 ```
